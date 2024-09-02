@@ -2,4 +2,18 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+
+return {
+  {
+    'cx-pete/hercula.nvim',
+    dependencies = {
+      { 'CrystalDime/epub.nvim', opts = {} },
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim',
+    },
+    opts = {},
+    config = function()
+      pcall(require('telescope').load_extension, 'hercula')
+    end,
+  },
+}
