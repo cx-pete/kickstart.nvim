@@ -394,12 +394,28 @@ require('lazy').setup({
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
+          ['hercula'] = {
+            mappings = {
+              i = {
+                --["<C-m>"] = { action = actions.mark },
+              },
+            },
+            dirs = {
+              vim.env.HOME,
+            },
+            scan = {
+              hidden = false,
+              depth = 5,
+              search_pattern = '.epub',
+            },
+          },
         },
       }
 
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'hercula')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'

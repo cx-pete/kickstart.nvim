@@ -7,13 +7,11 @@ return {
   {
     'cx-pete/hercula.nvim',
     dependencies = {
-      { 'CrystalDime/epub.nvim', opts = {} },
-      'nvim-telescope/telescope.nvim',
-      'nvim-lua/plenary.nvim',
+      { 'CrystalDime/epub.nvim', opts = {}, lazy = true },
+      { 'nvim-telescope/telescope.nvim', lazy = true },
+      { 'nvim-lua/plenary.nvim', lazy = true },
     },
     opts = {},
-    config = function()
-      pcall(require('telescope').load_extension, 'hercula')
-    end,
+    lazy = true,
   },
 }
